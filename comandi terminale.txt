@@ -7,4 +7,5 @@ cds add connectivity
 
 
 tramite wizard
-    createModuleFromTemplate -> AppRouter Managed
+    createModuleFromTemplate -> AppRouter -> Managed
+    createModuleFromTemplate -> Sap Fiori Generator -> Basic -> Use a Local CAP Project - sostituire View1 con Home - add flp true
