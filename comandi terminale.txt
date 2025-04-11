@@ -1,0 +1,10 @@
+cds init <app name> --java
+cds add mta
+cds add tiny-sample
+cds add hana
+cds add destination
+cds add connectivity
+
+
+tramite wizard
+    createModuleFromTemplate -> AppRouter Managed
