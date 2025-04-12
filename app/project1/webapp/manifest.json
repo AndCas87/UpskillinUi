@@ -22,6 +22,13 @@
         "settings": {
           "odataVersion": "4.0"
         }
+      },
+      "CatalogServiceV2": {
+        "uri": "destinazioneServlet/odata/v2/CatalogService/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
       }
     },
     "crossNavigation": {
@@ -74,14 +81,24 @@
           "bundleName": "com.up.project1.i18n.i18n"
         }
       },
-      "modelBooks": {
+      "modelBffV4": {
         "dataSource": "DataSourceBff",
         "preload": true,
         "settings": {
-            "groupId": "$direct",
-            "earlyRequests": true,
-            "operationMode": "Server",
-            "synchronizationMode": "None"
+          "groupId": "$direct",
+          "earlyRequests": true,
+          "operationMode": "Server",
+          "synchronizationMode": "None"
+        }
+      },
+      "modelBffV2": {
+        "dataSource": "CatalogServiceV2",
+        "preload": true,
+        "settings": {
+          "groupId": "$direct",
+          "earlyRequests": true,
+          "operationMode": "Server",
+          "synchronizationMode": "None"
         }
       }
     },
@@ -111,12 +128,33 @@
           "target": [
             "TargetHome"
           ]
+        },
+        {
+          "name": "CreateBook",
+          "pattern": "Create",
+          "target": "Create"
+        },
+        {
+          "name": "UpdateBook",
+          "pattern": "Update",
+          "target": "UpdateBook"
         }
       ],
       "targets": {
         "TargetHome": {
           "id": "Home",
           "name": "Home"
+        },
+        "Create": {
+          "viewId": "Create",
+          "viewName": "Create"
+        },
+        "UpdateBook": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Update",
+          "viewName": "Update"
         }
       }
     },

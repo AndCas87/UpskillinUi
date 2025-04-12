@@ -1,36 +1,50 @@
-<mvc:View controllerName="com.up.project1.controller.Home"
+<mvc:View
+    controllerName="com.up.project1.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
         <content>
-        <Table id="idTable" items="{modelBooks>/Books}">
-            <headerToolbar>
-                <OverflowToolbar>
-                    <content>
-                    <ToolbarSpacer/>
-                        <Button id="idCreate" 
-                            text="Create"
-                            press="onNavToCreate" />
-                    </content>
-                </OverflowToolbar>
-            </headerToolbar>
-            <columns>
-                <Column >
-                    <Text text="{i18n->title}" />
-                </Column>
-                <Column >
-                    <Text text="{i18n->stock}" />
-                </Column>
-            </columns>
-            <items >
-                <ColumnListItem vAlign="Middle" type="Navigation" press="onSelRow">
-                    <cells>
-                        <Text text="{modelBooks>title}"/>
-                        <Text text="{modelBooks>stock}"/>
-                    </cells>
-                </ColumnListItem>
-            </items>
-	</Table>
+            <Table
+                id="idTable"
+                items="{modelBffV4>/Books}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+                            <Button
+                                id="idCreate"
+                                text="Create"
+                                press="onNavToCreate"
+                            />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>colTitle}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>descr}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        vAlign="Middle"
+                        type="Navigation"
+                        press="onSelRow"
+                    >
+                        <cells>
+                            <Text text="{modelBffV4>title}" />
+                            <Text text="{modelBffV4>descr}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 </mvc:View>

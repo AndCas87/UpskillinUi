@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <sap.ui.layout.form:SimpleForm
+        editable="true"
+        layout="ResponsiveGridLayout"
+        xmlns:sap.ui.layout.form="sap.ui.layout.form"
+        id="form0"
+    >
+        <sap.ui.layout.form:content>
+            <core:Title
+                text="Title"
+                id="title0"
+            />
+            <VBox>
+                <Label
+                    id="idTitle"
+                    text="{i18n>title}"
+                />
+                <Input
+                    width="100%"
+                    id="id_title"
+                    value="{modelBook>/title}"
+                />
+
+                <Label
+                    id="idDescr"
+                    text="{i18n>descr}"
+                />
+                <Input
+                    width="100%"
+                    id="id_descr"
+                    value="{modelBook>/descr}"
+                />
+
+                <Label
+                    id="idAuthor"
+                    text="{i18n>author}"
+                />
+                <Input
+                    width="100%"
+                    id="id_author"
+                    value="{modelBook>/author_ID}"
+                    valueHelpRequest="onMatchAuthorId"
+                    showValueHelp="true"
+                />
+                <FlexBox
+                    width="100%"
+                    justifyContent="End"
+                    class="sapUiSmallMarginTop"
+                >
+                    <Button
+                        id="salva"
+                        text="{i18n>salva}"
+                        press="onSalva"
+                        width="5rem"
+                    />
+                </FlexBox>
+            </VBox>
+        </sap.ui.layout.form:content>
+    </sap.ui.layout.form:SimpleForm>
+</core:FragmentDefinition>

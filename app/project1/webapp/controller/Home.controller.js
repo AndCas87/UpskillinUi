@@ -1,31 +1,42 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ], (Controller) => {
-    "use strict";
+    "use strict";,
 
     return Controller.extend("com.up.project1.controller.Home", {
-        onInit() {
-            // const rootPath = jQuery.sap.getModulePath("cap/ex/capexampleui");
-            // var oModel = new JSONModel();
-            // this.getView().byId("idTable").setModel(oModel);
+        onInit: async function () {
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.getRoute("RouteHome").attachPatternMatched(this.onObjectMatched, this);
+        },
 
-            // oModel = new sap.ui.model.odata.v4.ODataModel({
-            //     serviceUrl: constants.destBff,
-            //     synchronizationMode: "None",
-            //     operationMode: "Server",
-            //     updateGroupId: "groupIdCatalogService",
+        onObjectMatched: function (oEvent) {
+            this.getView().byId("idTable").getBinding("items").refresh()
+            // var oModel = this.getOwnerComponent().getModel("modelBffV2");
+            // var that = this;
+            // var model = oModel.read("/Books", {
+            //     success: function (oData) {
+            //         that.getView().setModel(new JSONModel(oData.results), "modelBffV2");
+            //         var t = "";
+            //     },
+            //     error: function (e) {
+            //         var t = "";
+            //     }
             // });
-            // oModel.setDefaultBindingMode("TwoWay");
-            // this.getView().byId("idTable").setModel(oModel);
-            // // bind project entity directly to the table 
-            // this.oTemplate = this.getView().byId("idTable").getBindingInfo("items").template;
-            // this.getView().byId("idTable").unbindAggregation("items");
+        },
 
-            // this.getView().byId("idTable").bindAggregation("items", {
-            //     path: "/Books",
-            //     template: this.oTemplate,
+
+        onNavToCreate: async function (oEvent) {
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("CreateBook");
+        },
+
+        onSelRow: async function (oEvent) {
+            let index = parseInt(oEvent.getSource().getBindingContextPath("modelBffV2").slice(1));
+            // let model = this.getView().getModel("modelBffV2").getData()[index];
+            // let oRouter = this.getOwnerComponent().getRouter();
+            // oRouter.navTo("UpdateBook", {
+            //     bookId: model.ID
             // });
-            // this.updateDetailModel(sInitCode);
         }
     });
 });

@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <SelectDialog
+        title="Products"
+        items="{modelAuthors>/}"
+        search="_handleValueHelpSearch"
+        confirm="_handleValueHelpClose"
+    >
+        <StandardListItem
+            iconDensityAware="false"
+            iconInset="false"
+            title="{modelAuthors>ID}"
+            description="{modelAuthors>name}"
+        />
+    </SelectDialog>
+</core:FragmentDefinition>
