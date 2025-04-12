@@ -14,6 +14,7 @@
 
 	<!-- ACTUAL DEPENDENCIES -->
 	<dependencies>
+
 		<!-- CDS SPRING BOOT STARTER -->
 		<dependency>
 			<groupId>com.sap.cds</groupId>
@@ -37,6 +38,12 @@
 			<artifactId>cds-adapter-odata-v4</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency> 
+			<groupId>com.sap.cds</groupId> 
+			<artifactId>cds-adapter-odata-v2</artifactId> 
+			<scope>runtime</scope> 
+		</dependency> 
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -125,6 +132,7 @@
 							<commands>
 								<command>build --for java</command>
 								<command>deploy --to h2 --with-mocks --dry --out "${project.basedir}/src/main/resources/schema-h2.sql"</command>
+								<command>compile ${project.basedir} -s all -l all -2 edmx-v2 -o ${project.basedir}/src/main/resources/edmx/v2</command>
 							</commands>
 						</configuration>
 					</execution>

@@ -6,5 +6,8 @@
         "db": "hana",
         "destinations": true,
         "connectivity": true
+    },
+    "odata": {
+        "version": "v4"
     }
 }
